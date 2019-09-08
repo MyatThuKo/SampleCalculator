@@ -60,28 +60,28 @@
             android:rowCount="1">
 
             <Button
-                android:id="@+id/plus"
+                android:id="@+id/plusBtn"
                 android:background="@android:color/white"
                 android:onClick="onClickHandler"
                 android:text="+"
                 android:textSize="20sp" />
 
             <Button
-                android:id="@+id/minus"
+                android:id="@+id/minusBtn"
                 android:background="@android:color/white"
                 android:onClick="onClickHandler"
                 android:text="-"
                 android:textSize="20sp" />
 
             <Button
-                android:id="@+id/multiply"
+                android:id="@+id/multiplyBtn"
                 android:background="@android:color/white"
                 android:onClick="onClickHandler"
                 android:text="*"
                 android:textSize="20sp" />
 
             <Button
-                android:id="@+id/divide"
+                android:id="@+id/divideBtn"
                 android:background="@android:color/white"
                 android:onClick="onClickHandler"
                 android:text="/"
@@ -90,7 +90,16 @@
         </GridLayout>
 
         <Button
-            android:id="@+id/clear"
+            android:id="@+id/equalBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:onClick="onClickHandler"
+            android:text="="
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/clearBtn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/white"

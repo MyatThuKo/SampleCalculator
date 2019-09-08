@@ -15,6 +15,11 @@ public class MainActivity extends AppCompatActivity {
     EditText firstNumber;
     EditText secondNumber;
     TextView resultTextView;
+    String operator;
+
+    double num1;
+    double num2;
+    double result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,27 +28,36 @@ public class MainActivity extends AppCompatActivity {
         firstNumber = findViewById(R.id.firstNumberET);
         secondNumber = findViewById(R.id.secondNumberET);
         resultTextView = findViewById(R.id.resultTextView);
+        result = 0;
     }
 
     public void onClickHandler(View view) {
         switch (view.getId()) {
-            case R.id.plus:
-                calculate("+");
+            case R.id.plusBtn:
+                operator = "+";
+                printToast("Addition");
                 break;
 
-            case R.id.minus:
-                calculate("-");
+            case R.id.minusBtn:
+                operator = "-";
+                printToast("Subtraction");
                 break;
 
-            case R.id.multiply:
-                calculate("*");
+            case R.id.multiplyBtn:
+                operator = "*";
+                printToast("Multiplication");
                 break;
 
-            case R.id.divide:
-                calculate("/");
+            case R.id.divideBtn:
+                operator = "/";
+                printToast("Division");
                 break;
 
-            case R.id.clear:
+            case R.id.equalBtn:
+                calculate(operator);
+                break;
+
+            case R.id.clearBtn:
                 firstNumber.setText("");
                 secondNumber.setText("");
                 resultTextView.setText("");
@@ -51,14 +65,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void printToast(String operation) {
+        Toast.makeText(this, operation, Toast.LENGTH_SHORT).show();
+    }
+
+
     private void calculate(String operator) {
 
         if (firstNumber.getText().toString().isEmpty() || secondNumber.getText().toString().isEmpty()) {
             Toast.makeText(this, "Invalid Input, cannot be calculated.", Toast.LENGTH_SHORT).show();
         } else {
-            double num1 = Integer.valueOf(firstNumber.getText().toString());
-            double num2 = Integer.valueOf(secondNumber.getText().toString());
-            double result = 0;
+            num1 = Integer.valueOf(firstNumber.getText().toString());
+            num2 = Integer.valueOf(secondNumber.getText().toString());
 
             switch (operator) {
                 case "+":
@@ -102,7 +120,6 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
             resultTextView.setText(new DecimalFormat("##.###").format(result));
-            ;
         }
     }
 }
